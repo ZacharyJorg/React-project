@@ -31,8 +31,10 @@ function handleClick() {
 export function Nav (){
     return (
         <>
+        <div className="backdrop">
             <input type='text' className="cityInput"></input>
             <button className="findButton">FIND</button>
+        </div>
         </>
     )
 }
