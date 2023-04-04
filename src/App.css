@@ -1,0 +1,12 @@
+#root{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    height: 75vh;
+}
+
+.greeting{
+    position: fixed;
+    text-align: center;
+    margin-top: 150px;
+}

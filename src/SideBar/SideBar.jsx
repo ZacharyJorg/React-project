@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import './SideBar.css'
 
 export function SideBar (){
 const [buttonClicked, setButtonClicked] = useState(false);
@@ -12,14 +13,14 @@ function handleClick() {
   }
   if(buttonClicked == false){
     return (
-      <div>
-        <button style={{color: 'green'}} onClick={handleClick}>Find New City</button>
-      </div>
+      <>
+        <button className="searchButton" onClick={handleClick}>Search</button>
+      </>
     )
   } else if(buttonClicked == true) {
     return(
         <>
-        <button style={{color: 'green'}} onClick={handleClick}>Find New City</button>
+        <button className="searchButton" onClick={handleClick}>Search</button>
         <Nav />
         </>
     )
@@ -30,9 +31,8 @@ function handleClick() {
 export function Nav (){
     return (
         <>
-            <input type='text'></input>
-            <button>FIND</button>
-
+            <input type='text' className="cityInput"></input>
+            <button className="findButton">FIND</button>
         </>
     )
 }

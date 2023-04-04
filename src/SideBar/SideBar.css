@@ -1,0 +1,14 @@
+.findButton{
+    position: fixed;
+    margin-top: 70vh;
+}
+
+.cityInput{
+    background-color: aqua;
+}
+
+.searchButton{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
