@@ -1,0 +1,31 @@
+.findButton{
+    position: fixed;
+    padding: 5px 10px;
+    top: 70vh;
+}
+
+.backdrop{
+    display: flex;
+    align-items: start;
+    justify-items: flex-start;
+    background-color: blueviolet;
+    height: 150px;
+    width: 60%;
+}
+
+@media screen and (min-width: 950px) {
+    .backdrop{
+        width: 40%;
+    }
+}
+
+.cityInput{
+    background-color: aqua;
+    width: 50%;
+}
+
+.searchButton{
+    position: fixed;
+    right: 0;
+    top: 0;
+}

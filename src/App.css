@@ -1,12 +1,15 @@
 #root{
     display: flex;
     justify-content: center;
-    margin: 0;
-    height: auto;
+    align-items: center;
+    height: 75vh;
+    width: auto;
+    min-height: 700px;
 }
 
 .greeting{
-    position: fixed;
+    position: absolute;
+    font-size: 300%;
     text-align: center;
-    margin-top: 150px;
+    top: 25px;
 }

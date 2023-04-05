@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { SideBar } from './SideBar/SideBar'
+import { SideBar } from './components/SideBar'
 
 const date = new Date()
 console.log(date.getHours())

@@ -33,8 +33,8 @@ export function Nav (){
         <>
         <div className="backdrop">
             <input type='text' className="cityInput"></input>
-            <button className="findButton">FIND</button>
         </div>
+            <button className="findButton">FIND</button>
         </>
     )
 }
