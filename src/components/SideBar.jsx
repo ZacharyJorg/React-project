@@ -1,40 +1,38 @@
 import React, {useState} from "react"
 import './SideBar.css'
 
-export function SideBar (){
+export function SideBar (props){
 const [buttonClicked, setButtonClicked] = useState(false);
 
+
 function handleClick() {
-    if(buttonClicked == true){
+    if(buttonClicked){
         setButtonClicked(false)
-    } else if (buttonClicked == false){
+    } else {
     setButtonClicked(true);
     }
   }
-  if(buttonClicked == false){
+
+  function handleLocationChange(event) {
+    props.onLocationChange(event.target.value);
+  }
+  
+  if(buttonClicked){
     return (
       <>
-        <button className="searchButton" onClick={handleClick}>Search</button>
+      <button className="searchButton" onClick={handleClick}>Search</button>
+        <div className="backdrop">
+            <input type='text' value={props.location} onChange={handleLocationChange} className="cityInput"></input>
+            <button className="findButton">FIND</button>
+        </div>
       </>
     )
-  } else if(buttonClicked == true) {
+  } else {
     return(
         <>
         <button className="searchButton" onClick={handleClick}>Search</button>
-        <Nav />
         </>
     )
   }
   }
 
-
-export function Nav (){
-    return (
-        <>
-        <div className="backdrop">
-            <input type='text' className="cityInput"></input>
-            <button className="findButton">FIND</button>
-        </div>
-        </>
-    )
-}
