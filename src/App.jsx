@@ -13,6 +13,9 @@ console.log(date.getHours())
 function App() {
   const [data, setData] = useState(null);
   const [location, setLocation] = useState('Temecula')
+  const [displayLocation, setDisplayLocation] = useState(location)
+  const [showTemperature, setShowTemperature] = useState(false)
+  const [inputLocation, setInputLocation] = useState('Temecula') 
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
   useEffect(() => {
     fetch(apiUrl)
@@ -22,7 +25,7 @@ function App() {
   }, [apiUrl]);
 
   console.log(data)
-  let tempurature = ((data?.main?.temp- 273.15) * 9/5 + 32).toFixed()
+  const temperature = ((data?.main?.temp- 273.15) * 9/5 + 32).toFixed()
   console.log(data?.main?.temp ?? "Loading...")
 //1-11 morning, 12-15 afternoon, 16-21 evening, 22-24 night
 const greeting = date.getHours() >= 1 && date.getHours() <= 11
@@ -34,15 +37,26 @@ const greeting = date.getHours() >= 1 && date.getHours() <= 11
     : "Good Night";
 
     function handleLocationChange(newLocation) {
-      setLocation(newLocation);
+      setInputLocation(newLocation); // update the input location
     }
+
+    function handleFindButton() { // add new function
+      setLocation(inputLocation); // update the location
+      setDisplayLocation(inputLocation);
+      setShowTemperature(true);
+    }
+
   
     return (
       <>
       <h1 className='greeting'>{greeting}</h1>
-      <p>{location}</p>
-      <p>{tempurature ?? "Loading..."}</p>
-      <SideBar location={location} onLocationChange={handleLocationChange} />
+      <p className='location'>{displayLocation}</p>
+      {data ? (
+      <p className='temp'>{temperature ?? "Loading..."}</p>
+    ) : (
+      <p className='temp'>Loading...</p>
+    )}
+      <SideBar location={inputLocation} onLocationChange={handleLocationChange} onFind={handleFindButton} />
       </>
     )
   }

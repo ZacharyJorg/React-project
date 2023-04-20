@@ -16,14 +16,20 @@ function handleClick() {
   function handleLocationChange(event) {
     props.onLocationChange(event.target.value);
   }
+
+  function handleFindButton() {
+    setButtonClicked(false); // close the sidebar when FIND button is clicked
+    props.onFind(); // call the onFind prop function
+
+  }
   
   if(buttonClicked){
     return (
       <>
       <button className="searchButton" onClick={handleClick}>Search</button>
         <div className="backdrop">
-            <input type='text' value={props.location} onChange={handleLocationChange} className="cityInput"></input>
-            <button className="findButton">FIND</button>
+            <input type='text' onChange={handleLocationChange} className="cityInput"></input>
+            <button  onClick={handleFindButton} className="findButton">FIND</button>
         </div>
       </>
     )
