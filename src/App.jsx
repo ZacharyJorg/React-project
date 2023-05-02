@@ -26,7 +26,7 @@ function App() {
 
   console.log(data)
   const temperature = ((data?.main?.temp- 273.15) * 9/5 + 32).toFixed()
-  console.log(data?.main?.temp ?? "Loading...")
+  console.log(data?.message ?? "loading")
 //1-11 morning, 12-15 afternoon, 16-21 evening, 22-24 night
 const greeting = date.getHours() >= 1 && date.getHours() <= 11
     ? "Good Morning"
@@ -50,11 +50,16 @@ const greeting = date.getHours() >= 1 && date.getHours() <= 11
     return (
       <>
       <h1 className='greeting'>{greeting}</h1>
+      {data?.message ? (
+      <p className='location'> </p>
+      ) : (
       <p className='location'>{displayLocation}</p>
-      {data ? (
-      <p className='temp'>{temperature ?? "Loading..."}</p>
+      )}
+
+      {data?.message ? (
+      <p className='temp'>City Not Found</p>
     ) : (
-      <p className='temp'>Loading...</p>
+      <p className='temp'>{temperature ?? "Loading..."}</p>
     )}
       <SideBar location={inputLocation} onLocationChange={handleLocationChange} onFind={handleFindButton} />
       </>
