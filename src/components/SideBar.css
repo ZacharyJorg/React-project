@@ -1,9 +1,10 @@
 .findButton{
     text-align: center;
     padding: 10px 15px;
+    border: none;
     border-radius: 10px;
-    outline: 2px solid blue;
-    transition: outline-offset 0.3s ease-in-out;
+    outline: 2.5px solid rgb(19, 19, 35);
+    transition: outline-offset 0.4s ease-in-out;
 }
 
 .findButton:hover{
@@ -13,10 +14,10 @@
 .backdrop{
     display: flex;
     position: absolute;
-    bottom: 9.5%;
+    bottom: 1.5vh;
     align-items: center;
     justify-items: flex-start;
-    background-color: blueviolet;
+    background-color: rgba(255, 255, 255, 0.657);
     border-radius: 30px;
     justify-content: space-around;
     height: 150px;
@@ -25,6 +26,7 @@
     z-index: 1;
 }
 
+
 @media screen and (min-width: 950px) {
     .backdrop{
         width: 40%;
@@ -32,9 +34,11 @@
 }
 
 .cityInput{
-    background-color: aqua;
+    background-color: rgba(229, 255, 0, 0.103);
+    border: 2px solid rgb(19, 19, 35);
+    border-radius: 10px;
     width: 50%;
-    height: 3vh;
+    height: 4vh;
 }
 
 .searchButton{
