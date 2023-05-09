@@ -26,7 +26,7 @@ function handleClick() {
   if(buttonClicked){
     return (
       <>
-      <button className="searchButton" onClick={handleClick}>Search</button>
+      <button className="searchButton" onClick={handleClick}></button>
         <div className="backdrop">
             <input type='text' onChange={handleLocationChange} className="cityInput"></input>
             <button  onClick={handleFindButton} className="findButton">FIND</button>
@@ -36,7 +36,7 @@ function handleClick() {
   } else {
     return(
         <>
-        <button className="searchButton" onClick={handleClick}>Search</button>
+        <button className="searchButton" onClick={handleClick}></button>
         </>
     )
   }

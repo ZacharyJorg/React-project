@@ -24,6 +24,22 @@ function App() {
       .catch(error => console.log(error))
   }, [apiUrl]);
 
+  useEffect(() => {
+    let className = '';
+
+    if (date.getHours() >= 1 && date.getHours() <= 11) {
+      className = 'backgroundMorning';
+    } else if (date.getHours() >= 12 && date.getHours() <= 15) {
+      className = 'backgroundAfternoon';
+    } else if (date.getHours() >= 16 && date.getHours() <= 21) {
+      className = 'backgroundEvening';
+    } else {
+      className = 'backgroundNight';
+    }
+
+    document.body.className = className;
+  }, []);
+
   console.log(data)
   const temperature = ((data?.main?.temp- 273.15) * 9/5 + 32).toFixed()
   console.log(data?.message ?? "loading")
@@ -42,7 +58,7 @@ const greeting = date.getHours() >= 1 && date.getHours() <= 11
 
     function handleFindButton() { // add new function
       setLocation(inputLocation); // update the location
-      setDisplayLocation(inputLocation);
+      setDisplayLocation(inputLocation.charAt(0).toUpperCase() + inputLocation.slice(1));
       setShowTemperature(true);
     }
 
@@ -50,6 +66,7 @@ const greeting = date.getHours() >= 1 && date.getHours() <= 11
     return (
       <>
       <h1 className='greeting'>{greeting}</h1>
+
       {data?.message ? (
       <p className='location'> </p>
       ) : (
@@ -59,7 +76,7 @@ const greeting = date.getHours() >= 1 && date.getHours() <= 11
       {data?.message ? (
       <p className='temp'>City Not Found</p>
     ) : (
-      <p className='temp'>{temperature ?? "Loading..."}</p>
+      <p className='temp'>{`${temperature}° F` ?? "Loading..."}</p>
     )}
       <SideBar location={inputLocation} onLocationChange={handleLocationChange} onFind={handleFindButton} />
       </>

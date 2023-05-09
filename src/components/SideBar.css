@@ -1,17 +1,28 @@
 .findButton{
     text-align: center;
     padding: 10px 15px;
+    border-radius: 10px;
+    outline: 2px solid blue;
+    transition: outline-offset 0.3s ease-in-out;
+}
+
+.findButton:hover{
+    outline-offset: 3px;
 }
 
 .backdrop{
     display: flex;
+    position: absolute;
+    bottom: 9.5%;
     align-items: center;
     justify-items: flex-start;
     background-color: blueviolet;
+    border-radius: 30px;
     justify-content: space-around;
     height: 150px;
     width: 80%;
     margin-bottom: 12px;
+    z-index: 1;
 }
 
 @media screen and (min-width: 950px) {
@@ -27,7 +38,23 @@
 }
 
 .searchButton{
+    background-color: transparent;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/126/126474.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 35px;
+    height: 35px;
+    border: none;
+    outline: none;
+    cursor: pointer;
     position: fixed;
-    right: 0;
-    top: 0;
+    right: 5px;
+    top: 5px;
+    transition: 0.5s ease-in-out;
+}
+
+.searchButton:hover{
+    width: 50px;
+    height: 50px;
 }
